@@ -1,6 +1,6 @@
 # Demo Walkthrough
 
-## Acknowledgements 
+## Acknowledgements
 Continuation of the awesome work by everett-toews.
 * https://gist.github.com/everett-toews/ed56adcfd525ce65b178d2e5a5eb06aa
 
@@ -20,8 +20,8 @@ helm repo update
 ```
 
 ## Fork repo
-``` 
-https://github.com/lachie83/croc-hunter#fork-destination-box
+```
+https://github.com/campbelldgunn/croc-hunter#fork-destination-box
 ```
 
 ## Install Kube Lego chart
@@ -68,10 +68,10 @@ printf $(kubectl get secret --namespace jenkins jenkins-jenkins -o jsonpath="{.d
 
 If you're not using quay you can configure this to alternate locations in Jenkinsfile.json
 # Credentials > Jenkins > Global credentials > Add Credentials
-#   Username: lachie83
+#   Username: campbelldgunn
 #   Password: ***
 #   ID: quay_creds
-#   Description: https://quay.io/user/lachie83
+#   Description: https://quay.io/user/campbelldgunn
 
 # Open Blue Ocean
 # Create a new Pipeline
@@ -107,10 +107,10 @@ kubectl get pods --namespace jenkins
 
 
 ## Setup Webhook in Github
-``` 
+```
 printf ${JENKINS_URL}/github-webhook/ | pbcopy
 
-# https://github.com/lachie83/croc-hunter/settings/hooks
+# https://github.com/campbelldgunn/croc-hunter/settings/hooks
 # Add webhook
 #   Payload URL: <paste>
 # Which events would you like to trigger this webhook?
@@ -120,7 +120,7 @@ printf ${JENKINS_URL}/github-webhook/ | pbcopy
 
 ## Update croc-hunter ingress records
 ```
-Update croc-hunter.acs.az.estrado.io in charts/croc-hunter/values.yaml
+Update croc-hunter.whiteshield-inc.org in charts/croc-hunter/values.yaml
 
 Configured DNS A record to point to the Nginx Ingress IP
 Once master branch is pushed it should be available at that name
@@ -137,11 +137,11 @@ git push
 
 ### Building and releasing
 ```
-open ${JENKINS_URL}/blue/organizations/jenkins/lachie83%2Fcroc-hunter/activity/
+open ${JENKINS_URL}/blue/organizations/jenkins/campbelldgunn%2Fcroc-hunter/activity/
 
 # dev branch builds
 
-open https://github.com/lachie83/croc-hunter
+open https://github.com/campbelldgunn/croc-hunter
 
 # PR from dev to master
 # PR builds

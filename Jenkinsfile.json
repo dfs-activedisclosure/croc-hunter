@@ -5,13 +5,13 @@
     "cpu": "10m",
     "memory": "128Mi",
     "test": true,
-    "hostname": "croc-hunter.onesix.az.estrado.io"
+    "hostname": "croc-hunter.whiteshield-inc.org"
   },
   "container_repo": {
-    "host": "quay.io",
-    "master_acct": "lachie83",
-    "alt_acct": "lachie83",
-    "jenkins_creds_id": "quay_creds",
+    "host": "dfsacr.azurecr.io",
+    "master_acct": "dfsacr",
+    "alt_acct": "dfsacr",
+    "jenkins_creds_id": "dfsacr_creds",
     "repo": "croc-hunter",
     "dockeremail": ".",
     "dockerfile": "./"

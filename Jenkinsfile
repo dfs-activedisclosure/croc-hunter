@@ -84,7 +84,8 @@ volumes:[
           replicas      : config.app.replicas,
           cpu           : config.app.cpu,
           memory        : config.app.memory,
-          hostname      : config.app.hostname
+          hostname      : config.app.hostname,
+          nodeselector  : config.app.nodeselector
         )
 
       }
@@ -126,7 +127,8 @@ volumes:[
             replicas      : config.app.replicas,
             cpu           : config.app.cpu,
             memory        : config.app.memory,
-            hostname      : config.app.hostname
+            hostname      : config.app.hostname,
+            nodeselector  : config.app.nodeselector
           )
 
           //  Run helm tests
@@ -158,7 +160,8 @@ volumes:[
             replicas      : config.app.replicas,
             cpu           : config.app.cpu,
             memory        : config.app.memory,
-            hostname      : config.app.hostname
+            hostname      : config.app.hostname,
+            nodeselector  : config.app.nodeselector
           )
 
           //  Run helm tests

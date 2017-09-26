@@ -1,0 +1,9 @@
+name: croc-hunter
+home: https://github.com/campbelldgunn/croc-hunter
+version: 0.3.0
+description: Live out your dream hunting Crocs
+sources:
+  - https://github.com/campbelldgunn/croc-hunter
+maintainers:
+  - name: Campbell Gunn
+    email: campbelldgunn@gmail.com

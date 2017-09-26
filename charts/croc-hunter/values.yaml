@@ -13,7 +13,7 @@ imageTag: "latest"
 imagePullPolicy: "Always"
 cpu: "10m"
 memory: "128Mi"
-NodeSelector:
+nodeSelector:
   os: "linux"
 # Ingress settings
 ingress:

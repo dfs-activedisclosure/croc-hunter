@@ -2,7 +2,7 @@
 
 // load pipeline functions
 // Requires pipeline-github-lib plugin to load library from github
-@Library('github.com/campbelldgunn/jenkins-pipeline@v0.5')
+@Library('github.com/campbelldgunn/jenkins-pipeline@v0.6')
 def pipeline = new org.whiteshieldinc.Pipeline()
 
 podTemplate(label: 'jenkins-pipeline', nodeSelector: 'os=linux', containers: [

@@ -27,10 +27,6 @@ metadata:
     component: "{{.Release.Name}}-{{.Values.component}}"
 spec:
   replicas: {{ default 1 .Values.replicas }}
-  {{- if .Values.nodeSelector }}
-  nodeSelector:
-  {{ toYaml .Values.nodeSelector | indent 8 }}
-  {{- end -}}
   strategy:
     type: RollingUpdate
   selector:
@@ -44,6 +40,10 @@ spec:
         chart: "{{.Chart.Name}}-{{.Chart.Version}}"
         component: "{{.Release.Name}}-{{.Values.component}}"
     spec:
+    {{- if .Values.nodeSelector }}
+    nodeSelector:
+    {{ toYaml .Values.nodeSelector | indent 8 }}
+    {{- end -}}
       containers:
         - name: {{ template "fullname" . }}
           image: "{{.Values.image}}:{{.Values.imageTag}}"

@@ -62,7 +62,3 @@ spec:
             httpGet:
               path: /healthz
               port: http
-          {{- if .Values.nodeSelector }}
-          nodeSelector:
-          {{ toYaml .Values.nodeSelector | indent 8 }}
-          {{- end -}}

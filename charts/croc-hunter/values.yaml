@@ -14,7 +14,7 @@ imagePullPolicy: "Always"
 cpu: "10m"
 memory: "128Mi"
 nodeSelector:
-  os: linux
+  os: "linux"
 # Ingress settings
 ingress:
   enabled: true

@@ -27,6 +27,10 @@ metadata:
     component: "{{.Release.Name}}-{{.Values.component}}"
 spec:
   replicas: {{ default 1 .Values.replicas }}
+  {{- if .Values.nodeSelector }}
+  nodeSelector:
+  {{ toYaml .Values.nodeSelector | indent 8 }}
+  {{- end -}}
   strategy:
     type: RollingUpdate
   selector:
@@ -62,7 +66,3 @@ spec:
             httpGet:
               path: /healthz
               port: http
-          {{- if .Values.nodeSelector }}
-          nodeSelector:
-          {{ toYaml .Values.nodeSelector | indent 8 }}
-          {{- end -}}

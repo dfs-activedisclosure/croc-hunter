@@ -5,6 +5,8 @@ metadata:
   annotations:
     "helm.sh/hook": test-success
 spec:
+  nodeSelector:
+  os: linux
   containers:
     - name: {{ template "fullname" . }}-web-test
       image: busybox

@@ -10,12 +10,3 @@ spec:
       image: busybox
       command: ["wget",  "--spider", "{{ template "fullname" . }}:{{.Values.servicePort}}"]
   restartPolicy: Never
-
----
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: "{{ template "fullname" . }}-web-test"
-spec:
-  nodeSelector:
-  os: linux

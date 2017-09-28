@@ -4,7 +4,7 @@
     "replicas": "3",
     "cpu": "10m",
     "memory": "128Mi",
-    "test": false,
+    "test": true,
     "hostname": "croc-hunter.ddns.net"
   },
   "container_repo": {

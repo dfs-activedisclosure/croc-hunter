@@ -11,4 +11,6 @@ spec:
     - name: {{ template "fullname" . }}-web-test
       image: busybox
       command: ["wget",  "--spider", "{{ template "fullname" . }}:{{.Values.servicePort}}"]
+  nodeSelector:
+  os: linux
   restartPolicy: Never

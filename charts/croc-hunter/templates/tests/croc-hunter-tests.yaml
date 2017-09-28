@@ -17,5 +17,5 @@ kind: Deployment
 metadata:
   name: "{{ template "fullname" . }}-web-test"
 spec:
-nodeSelector:
+  nodeSelector:
   os: linux

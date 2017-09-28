@@ -42,7 +42,7 @@ spec:
     spec:
       {{- if .Values.nodeSelector }}
       nodeSelector:
-      {{ toYaml .Values.nodeSelector }}
+      {{ toYaml .Values.nodeSelector | indent 6 }}
       {{- end -}}
       containers:
         - name: {{ template "fullname" . }}

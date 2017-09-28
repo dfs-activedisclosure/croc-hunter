@@ -5,7 +5,7 @@ metadata:
   annotations:
     "helm.sh/hook": test-success
 spec:
-  nodeSelector:
+nodeSelector:
   os: linux
   containers:
     - name: {{ template "fullname" . }}-web-test

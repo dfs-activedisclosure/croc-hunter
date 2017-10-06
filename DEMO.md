@@ -82,7 +82,7 @@ If you're not using quay you can configure this to alternate locations in Jenkin
 #     Token description: kubernetes-jenkins
 #   Generate token > Copy Token > Paste back in Jenkins  
 # Which organization does the repository belong to?
-#   lachie83
+#   campbelldgunn
 # Create a single Pipeline or discover all Pipelines?
 #   New pipeline
 # Choose a repository
@@ -98,7 +98,7 @@ kubectl get pods --namespace jenkins
 ## Update Org to build PRs
 ```
 # Classic Jenkins
-# lachie83 (GitHub org)
+# campbelldgunn (GitHub org)
 # Configure
 # Advanced
 #   Build origin PRs (merged with base branch)

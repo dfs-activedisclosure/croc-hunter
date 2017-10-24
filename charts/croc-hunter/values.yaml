@@ -27,3 +27,7 @@ ingress:
 pdb:
   enabled: false
   minAvailable: 2
+
+rbac:
+  create: true
+  serviceAccountName: default

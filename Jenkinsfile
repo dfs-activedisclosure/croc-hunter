@@ -94,19 +94,29 @@ volumes:[
 
       container('docker') {
 
+        // build and publish container
+        pipeline.containerBuildPub(
+            dockerfile: config.container_repo.dockerfile,
+            host      : config.container_repo.host,
+            acct      : acct,
+            repo      : config.container_repo.repo,
+            tags      : image_tags_list,
+            auth_id   : config.container_repo.jenkins_creds_id
+        )
+
            twistlockScan ca: '', cert: '', compliancePolicy: 'warn', \
              dockerAddress: 'unix:///var/run/docker.sock', \
              ignoreImageBuildTime: false, key: '', logLevel: 'true', \
              policy: 'warn', repository: 'dfsacr/croc-hunter', \
-             requirePackageUpdate: false, tag: image_tags_list.get(0), timeout: 10
+             requirePackageUpdate: false, tag: 'latest', timeout: 10
            }
     }
-    
+
     stage ('publish container') {
 
       container('docker') {
 
-        // perform docker login to quay as the docker-pipeline-plugin doesn't work with the next auth json format
+        // perform docker login to docker as the docker-pipeline-plugin doesn't work with the next auth json format
         withCredentials([[$class          : 'UsernamePasswordMultiBinding', credentialsId: config.container_repo.jenkins_creds_id,
                         usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
           sh "docker login -e ${config.container_repo.dockeremail} -u ${env.USERNAME} -p ${env.PASSWORD} dfsacr.azurecr.io"

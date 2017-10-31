@@ -2,7 +2,7 @@
 
 // load pipeline functions
 // Requires pipeline-github-lib plugin to load library from github
-@Library('github.com/campbelldgunn/jenkins-pipeline@v0.8')
+@Library('github.com/campbelldgunn/jenkins-pipeline@v0.9')
 def pipeline = new org.whiteshieldinc.Pipeline()
 
 podTemplate(label: 'jenkins-pipeline', nodeSelector: 'os=linux', containers: [
@@ -92,8 +92,14 @@ volumes:[
 
     stage('scan') {
 
-      container('golang') {
-
+      container('docker') {
+        // build and publish container
+        pipeline.containerBuild(
+            dockerfile: config.container_repo.dockerfile,
+            acct      : acct,
+            repo      : config.container_repo.repo,
+            tags      : image_tags_list
+        )
            twistlockScan ca: '', cert: '', compliancePolicy: 'warn', \
              dockerAddress: 'unix:///var/run/docker.sock', \
              ignoreImageBuildTime: false, key: '', logLevel: 'true', \

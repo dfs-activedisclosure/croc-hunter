@@ -92,17 +92,7 @@ volumes:[
 
     stage('scan') {
 
-      container('docker') {
-
-        // build and publish container
-        pipeline.containerBuildPub(
-            dockerfile: config.container_repo.dockerfile,
-            host      : config.container_repo.host,
-            acct      : acct,
-            repo      : config.container_repo.repo,
-            tags      : image_tags_list,
-            auth_id   : config.container_repo.jenkins_creds_id
-        )
+      container('golang') {
 
            twistlockScan ca: '', cert: '', compliancePolicy: 'warn', \
              dockerAddress: 'unix:///var/run/docker.sock', \

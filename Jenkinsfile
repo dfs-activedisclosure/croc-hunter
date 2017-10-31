@@ -95,7 +95,7 @@ volumes:[
              dockerAddress: 'unix:///var/run/docker.sock', \
              ignoreImageBuildTime: false, key: '', logLevel: 'true', \
              policy: 'warn', repository: 'dfsacr/croc-hunter', \
-             requirePackageUpdate: false, tag: 'latest', timeout: 10
+             requirePackageUpdate: false, tag: image_tags_list, timeout: 10
     }
 
     stage ('publish container') {

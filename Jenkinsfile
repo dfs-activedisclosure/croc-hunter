@@ -90,6 +90,14 @@ volumes:[
       }
     }
 
+    stage('Scan') {
+           twistlockScan ca: '', cert: '', compliancePolicy: 'warn', \
+             dockerAddress: 'unix:///var/run/docker.sock', \
+             ignoreImageBuildTime: false, key: '', logLevel: 'true', \
+             policy: 'warn', repository: 'dfsacr/croc-hunter', \
+             requirePackageUpdate: false, tag: '*', timeout: 10
+    }
+
     stage ('publish container') {
 
       container('docker') {

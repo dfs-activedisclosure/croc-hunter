@@ -90,7 +90,7 @@ volumes:[
       }
     }
 
-    stage('scan') {
+    /*stage('scan') {
 
       container('docker') {
            twistlockScan ca: '', cert: '', compliancePolicy: 'warn', \
@@ -99,7 +99,7 @@ volumes:[
              policy: 'warn', repository: 'dfsacr/croc-hunter', \
              requirePackageUpdate: false, tag: image_tags_list.get(0), timeout: 10
            }
-    }
+    }*/
 
     stage ('publish container') {
 

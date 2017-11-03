@@ -106,7 +106,7 @@ volumes:[
       container('docker') {
 
         // perform docker login to docker as the docker-pipeline-plugin doesn't work with the next auth json format
-        withCredentials([[$class          : 'UsernamePasswordMultiBinding', credentialsId: config.container_repo.jenkins_creds_id,
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: config.container_repo.jenkins_creds_id,
                         usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
           sh "docker login -e ${config.container_repo.dockeremail} -u ${env.USERNAME} -p ${env.PASSWORD} dfsacr.azurecr.io"
         }

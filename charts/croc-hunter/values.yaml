@@ -29,5 +29,7 @@ pdb:
   minAvailable: 2
 
 rbac:
-  create: true
+  install: true
   serviceAccountName: default
+  # RBAC api version (currently either v1beta1 or v1alpha1)
+  apiVersion: v1beta1

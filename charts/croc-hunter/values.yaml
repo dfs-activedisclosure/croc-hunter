@@ -29,5 +29,5 @@ pdb:
   minAvailable: 2
 
 rbac:
-  install: true
+  create: true
   serviceAccountName: default

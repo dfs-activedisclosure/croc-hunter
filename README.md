@@ -3,7 +3,7 @@
 For those that have dreamt to hunt crocs
 
 # Usage
-Basic go web server to demonstrate example CI/CD pipeline using Kubernetes
+Basic go webserver to demonstrate example CI/CD pipeline using Kubernetes
 
 # Deploy using Jenkins Chart and Helm
 

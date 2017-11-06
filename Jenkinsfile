@@ -62,7 +62,9 @@ volumes:[
     stage ('compile and test') {
 
       container('golang') {
-        sh "go test -v -race ./..."
+        sh "go get -u github.com/jstemmer/go-junit-report"
+        //sh "go test -v -race ./..."
+        sh "go test -v -race ./... | go-junit-report > report.xml"
         sh "make bootstrap build"
       }
     }

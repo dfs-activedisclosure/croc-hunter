@@ -111,6 +111,8 @@ volumes:[
             tags      : image_tags_list,
             auth_id   : config.container_repo.jenkins_creds_id
         )
+        // Logging output of the container from the template
+        containerLog 'docker'
       }
 
     }

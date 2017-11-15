@@ -6,7 +6,7 @@
 def pipeline = new org.whiteshieldinc.Pipeline()
 
 podTemplate(label: 'jenkins-pipeline', nodeSelector: 'os=linux', containers: [
-    containerTemplate(name: 'jnlp', image: 'jenkinsci/jnlp-slave:2.62', args: '${computer.jnlpmac} ${computer.name}', workingDir: '/home/jenkins', resourceRequestCpu: '200m', resourceLimitCpu: '200m', resourceRequestMemory: '256Mi', resourceLimitMemory: '256Mi'),
+    containerTemplate(name: 'jnlp', image: 'jenkinsci/jnlp-slave:3.14-1-alpine', args: '${computer.jnlpmac} ${computer.name}', workingDir: '/home/jenkins', resourceRequestCpu: '200m', resourceLimitCpu: '200m', resourceRequestMemory: '256Mi', resourceLimitMemory: '384Mi'),
     containerTemplate(name: 'docker', image: 'docker:1.12.6', command: 'cat', ttyEnabled: true),
     containerTemplate(name: 'golang', image: 'golang:1.8.3', command: 'cat', ttyEnabled: true),
     containerTemplate(name: 'helm', image: 'campbelldgunn/k8s-helm:latest', command: 'cat', ttyEnabled: true),
@@ -111,6 +111,8 @@ volumes:[
             tags      : image_tags_list,
             auth_id   : config.container_repo.jenkins_creds_id
         )
+        // Logging output of the container from the template
+        containerLog 'docker'
       }
 
     }

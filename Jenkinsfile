@@ -54,10 +54,7 @@ volumes:[
     def acct = pipeline.getContainerRepoAcct(config)
 
     // tag image with version, and branch-commit_id
-    def image_tags_map = pipeline.getContainerTags(config)
-
-    // compile tag list
-    def image_tags_list = pipeline.getMapValues(image_tags_map)
+    def tags = pipeline.getContainerTags(config)
 
     stage ('compile and test') {
 
@@ -108,7 +105,7 @@ volumes:[
             host      : config.container_repo.host,
             acct      : acct,
             repo      : config.container_repo.repo,
-            tags      : image_tags_list,
+            tags      : tags,
             auth_id   : config.container_repo.jenkins_creds_id
         )
         // Logging output of the container from the template
@@ -125,7 +122,7 @@ volumes:[
             dry_run       : false,
             name          : env.BRANCH_NAME.toLowerCase(),
             namespace     : env.BRANCH_NAME.toLowerCase(),
-            version_tag   : image_tags_list.get(0),
+            version_tag   : tags.get(0),
             chart_dir     : chart_dir,
             replicas      : config.app.replicas,
             cpu           : config.app.cpu,
@@ -157,7 +154,7 @@ volumes:[
             dry_run       : false,
             name          : config.app.name,
             namespace     : config.app.name,
-            version_tag   : image_tags_list.get(0),
+            version_tag   : tags.get(0),
             chart_dir     : chart_dir,
             replicas      : config.app.replicas,
             cpu           : config.app.cpu,

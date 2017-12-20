@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "croc-hunter",
-    "replicas": "3",
+    "replicas": "1",
     "cpu": "10m",
     "memory": "128Mi",
     "test": true,

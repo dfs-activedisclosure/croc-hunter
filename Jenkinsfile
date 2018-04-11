@@ -5,7 +5,7 @@
 @Library('github.com/campbelldgunn/jenkins-pipeline')
 def pipeline = new org.whiteshieldinc.Pipeline()
 
-podTemplate(label: 'jenkins-pipeline', nodeSelector: 'beta.kubernetes.io/os: linux', containers: [
+podTemplate(label: 'jenkins-pipeline', nodeSelector: 'beta.kubernetes.io/os=linux', containers: [
     containerTemplate(name: 'jnlp', image: 'jenkinsci/jnlp-slave:3.14-1-alpine', args: '${computer.jnlpmac} ${computer.name}', workingDir: '/home/jenkins', resourceRequestCpu: '200m', resourceLimitCpu: '200m', resourceRequestMemory: '256Mi', resourceLimitMemory: '384Mi'),
     containerTemplate(name: 'docker', image: 'docker:1.12.6', command: 'cat', ttyEnabled: true),
     containerTemplate(name: 'golang', image: 'golang:1.8.3', command: 'cat', ttyEnabled: true),

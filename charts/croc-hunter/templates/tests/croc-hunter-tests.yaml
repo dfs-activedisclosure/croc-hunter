@@ -10,5 +10,5 @@ spec:
       image: busybox
       command: ["wget",  "--spider", "{{ template "fullname" . }}:{{.Values.servicePort}}"]
   nodeSelector:
-    os: linux
+    beta.kubernetes.io/os: linux
   restartPolicy: Never

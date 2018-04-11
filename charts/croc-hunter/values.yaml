@@ -4,6 +4,15 @@
 # name: value
 
 serviceType: ClusterIP
+ServiceAnnotations:
+  getambassador.io/config: |
+    ---
+    apiVersion: ambassador/v0
+    kind:  Mapping
+    name:  croc-hunter_mapping
+    prefix: /
+    service: croc-hunter-croc-hunter.croc-hunter:8080
+    host: croc-hunter.ddns.net
 servicePort: 80
 containerPort: 8080
 component: "croc-hunter"
@@ -14,15 +23,15 @@ imagePullPolicy: "Always"
 cpu: "10m"
 memory: "128Mi"
 nodeSelector:
-  os: linux
+  beta.kubernetes.io/os: linux
 # Ingress settings
 ingress:
-  enabled: true
-  hostname: croc-hunter.ddns.net
+  enabled: false
+  # hostname: croc-hunter.ddns.net
   annotations:
-     kubernetes.io/ingress.class: nginx
-     kubernetes.io/tls-acme: "true"
-  tls: true
+     # kubernetes.io/ingress.class: nginx
+     # kubernetes.io/tls-acme: "true"
+  tls: false
 # PodDisruptionBudget
 pdb:
   enabled: false

@@ -8,7 +8,7 @@ def pipeline = new org.whiteshieldinc.Pipeline()
 podTemplate(label: 'jenkins-pipeline', nodeSelector: 'beta.kubernetes.io/os=linux', containers: [
     containerTemplate(name: 'jnlp', image: 'jenkinsci/jnlp-slave:3.19-1-alpine', args: '${computer.jnlpmac} ${computer.name}', workingDir: '/home/jenkins', resourceRequestCpu: '200m', resourceLimitCpu: '200m', resourceRequestMemory: '256Mi', resourceLimitMemory: '384Mi'),
     containerTemplate(name: 'docker', image: 'docker:18.03', command: 'cat', ttyEnabled: true),
-    containerTemplate(name: 'golang', image: 'golang:1.9-alpine', command: 'cat', ttyEnabled: true),
+    containerTemplate(name: 'golang', image: 'golang:1.8.3', command: 'cat', ttyEnabled: true),
     containerTemplate(name: 'helm', image: 'campbelldgunn/k8s-helm:latest', command: 'cat', ttyEnabled: true),
     containerTemplate(name: 'kubectl', image: 'campbelldgunn/k8s-kubectl:latest', command: 'cat', ttyEnabled: true)
 ],

@@ -11,7 +11,7 @@ ServiceAnnotations:
     kind:  Mapping
     name:  croc-hunter_mapping
     prefix: /
-    service: croc-hunter.croc-hunter
+    service: croc-hunter-croc-hunter.croc-hunter
     host: croc-hunter.dev.activedisclosure.com
 servicePort: 80
 containerPort: 8080

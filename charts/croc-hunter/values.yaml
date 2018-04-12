@@ -12,7 +12,7 @@ ServiceAnnotations:
     name:  croc-hunter_mapping
     prefix: /
     service: croc-hunter.croc-hunter:8080
-    host: croc-hunter.ddns.net
+    host: croc-hunter.dev.activedisclosure.com
 servicePort: 80
 containerPort: 8080
 component: "croc-hunter"

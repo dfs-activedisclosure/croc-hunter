@@ -5,7 +5,7 @@
     "cpu": "10m",
     "memory": "128Mi",
     "test": true,
-    "hostname": "croc-hunter.ddns.net"
+    "hostname": "croc-hunter.dev.activedisclosure.com"
   },
   "container_repo": {
     "host": "dfsacr.azurecr.io",

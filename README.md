@@ -1,6 +1,6 @@
 # Croc Hunter - The game!
 
-For those that have dreamt to hunt crocs
+For those that have dreamt to hunt crocs.
 
 # Usage
 Basic go web server to demonstrate example CI/CD pipeline using Kubernetes
